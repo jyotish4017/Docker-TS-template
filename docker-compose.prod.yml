@@ -1,0 +1,13 @@
+# docker compose -f docker-compose.prod.yml up --build
+# docker exec -it docker-ts-api-1 sh
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      target: production
+
+    ports:
+      - 4000:4000  # localhost listening : container listening , localhost listen and send its to container
+     

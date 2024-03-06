@@ -1,0 +1,15 @@
+# docker compose -f docker-compose.dev.yml up --build
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules 
+      #it will prevent node_modules to persist data in above directory
+    ports:
+      - 4000:4000  # localhost listening : container listening , localhost listen and send its to container
+    command: npm run dev  
